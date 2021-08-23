@@ -15,7 +15,20 @@ public class Util {
 	 * Carrega uma matriz de inteiros do arquivo "matrix$.txt" onde $ e o
 	 * identificador numerico passado por argumento. Cada linha do arquivo
 	 * representa um inteiro. Um arquivo no formato a seguir representa uma matriz
-	 * 3x3 respectivamente: Arquivo: 1 2 3 4 5 6 7 8 9 Matriz: [1, 2, 3] [4, 5, 6]
+	 * 3x3 respectivamente: 
+	 * Arquivo: 
+	 * 1 
+	 * 2 
+	 * 3 
+	 * 4 
+	 * 5 
+	 * 6 
+	 * 7 
+	 * 8 
+	 * 9 
+	 * Matriz: 
+	 * [1, 2, 3] 
+	 * [4, 5, 6]
 	 * [7, 8, 9]
 	 */
 	public static int[][] loadMatrix3x3(int arg) {
