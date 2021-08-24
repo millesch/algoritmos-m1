@@ -16,11 +16,14 @@ public class Add {
                 int iOne = image.getRGB(x, y);
                 int iTwo = image2.getRGB(x, y);
 
+                // separação e soma dos canais de cores e do alpha do pixel
                 int alpha = Util.getAlpha(iOne) + Util.getAlpha(iTwo);
                 int red = Util.getRed(iOne) + Util.getRed(iTwo);
                 int green = Util.getGreen(iOne) + Util.getGreen(iTwo);
                 int blue = Util.getBlue(iOne) + Util.getBlue(iTwo);
 
+                // função Math.min compara a soma ao número 255 e retorna o menor deles
+                // para que o resultado não seja maior do que 255
                 int pAlpha = Math.min(alpha, 255);
                 int pRed = Math.min(red, 255);
                 int pGreen = Math.min(green, 255);

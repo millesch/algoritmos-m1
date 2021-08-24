@@ -15,11 +15,14 @@ public class Subtract {
                 int iOne = image.getRGB(x, y);
                 int iTwo = image2.getRGB(x, y);
 
+                // separação e subtração dos canais de cores e do alpha do pixel
                 int alpha = Util.getAlpha(iOne) - Util.getAlpha(iTwo);
                 int red = Util.getRed(iOne) - Util.getRed(iTwo);
                 int green = Util.getGreen(iOne) - Util.getGreen(iTwo);
                 int blue = Util.getBlue(iOne) - Util.getBlue(iTwo);
 
+                // função Math.max compara a subtração ao número 0 e retorna o maior deles
+                // para que o resultado não seja menor do que 0
                 int pAlpha = Math.max(alpha, 0);
                 int pRed = Math.max(red, 0);
                 int pGreen = Math.max(green, 0);

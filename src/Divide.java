@@ -15,6 +15,9 @@ public class Divide {
                 int iOne = image.getRGB(x, y);
                 int iTwo = image2.getRGB(x, y);
 
+                // separação e divisão dos canais de cores e do alpha do pixel
+                // caso o alpha ou canal da segunda imagem for menor que 0, é retornado 0
+                // senão, é realizada a divisão
                 int alpha = Util.getAlpha(iTwo) > 0 ? Util.getAlpha(iOne) / Util.getAlpha(iTwo) : 0;
                 int red = Util.getRed(iTwo) > 0 ? Util.getRed(iOne) / Util.getRed(iTwo) : 0;
                 int green = Util.getGreen(iTwo) > 0 ? Util.getGreen(iOne) / Util.getGreen(iTwo) : 0;

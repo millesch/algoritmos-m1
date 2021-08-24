@@ -15,13 +15,16 @@ public class Multiply {
                 int iOne = image.getRGB(x, y);
                 int iTwo = image2.getRGB(x, y);
 
+                // separação e multiplicação dos canais de cores e do alpha do pixel
                 int red = Util.getRed(iOne) * Util.getRed(iTwo);
                 int green = Util.getGreen(iOne) * Util.getGreen(iTwo);
                 int blue = Util.getBlue(iOne) * Util.getBlue(iTwo);
 
-                int pRed = (red > 255) ? 255 : red;
-                int pGreen = (green > 255) ? 255 : green;
-                int pBlue = (blue > 255) ? 255 : blue;
+                // função Math.min compara a multiplicação ao número 255 e retorna o menor deles
+                // para que o resultado não seja maior do que 255
+                int pRed = Math.min(red, 255);
+                int pGreen = Math.min(green, 255);
+                int pBlue = Math.min(blue, 255);
 
                 int p = 255 | (pRed << 16) | (pGreen << 8) | pBlue;
 
