@@ -8,7 +8,7 @@ public class Divide {
 
         int width = image.getWidth();
         int height = image.getHeight();
-        BufferedImage newImage = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
+        BufferedImage newImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
