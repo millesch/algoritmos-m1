@@ -26,7 +26,7 @@ public class Convolution {
 				//fors aninhados para percorre cada elemento da matriz mascara e multiplicar pelo pixel correpondente da imagem.
 				for (int i = 0; i < 3; i++) {
 					for (int j = 0; j < 3; j++) {
-						//separaçao dos canais de cores e alpha do pixel correntemente iterando.
+						//separaï¿½ao dos canais de cores e alpha do pixel correntemente iterando.
 						int p = image.getRGB(x + k, y + z++);
 						int a = (p >> 24) & 0xff;
 						int r = (p >> 16) & 0xff;
