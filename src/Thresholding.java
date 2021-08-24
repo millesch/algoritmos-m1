@@ -29,6 +29,7 @@ public class Thresholding {
 				imagemThres.setRGB(x, y, pT);
 			}
 		}
+		Util.writeImageOnFile(imagemThres, "src/blackAndWhite.png");
 		Util.showBufferedImages(image, imagemThres);
 	}
 }
