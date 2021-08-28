@@ -3,10 +3,13 @@ import java.awt.image.BufferedImage;
 
 public class Greyscale {
 	public static void main(String args[]) throws IOException {
-		BufferedImage image = Util.loadImageFromFile("src/img1.png");
+		BufferedImage image = Util.loadImageFromFile("src/input/img1.png");
 
 		int width = image.getWidth();
 		int height = image.getHeight();
+
+		BufferedImage greyscale = new BufferedImage(width, height, image.getType());
+		
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
 				int p = image.getRGB(x, y);
@@ -16,9 +19,11 @@ public class Greyscale {
 				int b = p & 0xff;
 				int avg = (r + g + b) / 3;
 				p = (a << 24) | (avg << 16) | (avg << 8) | avg;
-				image.setRGB(x, y, p);
+				greyscale.setRGB(x, y, p);
 			}
 		}
-		Util.writeImageOnFile(image, "src/greyscale.png");
+
+		Util.writeImageOnFile(greyscale, "src/output/greyscale.png");
+		Util.showBufferedImages(image, greyscale);
 	}
 }

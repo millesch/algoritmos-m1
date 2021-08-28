@@ -6,7 +6,7 @@ public class Convolution {
 		BufferedImage image = null;
 		BufferedImage imageConv = null;
 
-		image = Util.loadImageFromFile("src/greyscale.png");
+		image = Util.loadImageFromFile("src/input/greyscale.png");
 
 		int[][] mask = Util.loadMatrix3x3(1);
 
@@ -28,9 +28,6 @@ public class Convolution {
 					for (int j = 0; j < 3; j++) {
 						//separa�ao dos canais de cores e alpha do pixel correntemente iterando.
 						int p = image.getRGB(x + k, y + z++);
-						int a = (p >> 24) & 0xff;
-						int r = (p >> 16) & 0xff;
-						int g = (p >> 8) & 0xff;
 						int b = p & 0xff;
 
 						ac += mask[i][j] * b; //acumulado todas as multiplicacoes de mascara e pixel
@@ -55,5 +52,6 @@ public class Convolution {
 			}
 		}
 		Util.showBufferedImages(image, imageConv);
+		Util.writeImageOnFile(imageConv, "src/output/convolution.png");
 	}
 }

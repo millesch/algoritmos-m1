@@ -6,7 +6,7 @@ public class Erosion {
 		BufferedImage image = null;
 		BufferedImage imageEros = null;
 
-		image = Util.loadImageFromFile("src/blackAndWhite.png");
+		image = Util.loadImageFromFile("src/input/blackAndWhite.png");
 
 		int[][] mask = Util.loadMatrix3x3(3);
 
@@ -25,11 +25,8 @@ public class Erosion {
 
 				for (int i = 0; i < 3; i++) {
 					for (int j = 0; j < 3; j++) {
-						//separaçao dos canais de cores e alpha do pixel corrente.
+						//separaï¿½ao dos canais de cores e alpha do pixel corrente.
 						int p = image.getRGB(x + k, y + z++);
-						int a = (p >> 24) & 0xff;
-						int r = (p >> 16) & 0xff;
-						int g = (p >> 8) & 0xff;
 						int b = p & 0xff;
 						
 						if(mask[i][j] == 1)
@@ -52,5 +49,6 @@ public class Erosion {
 			}
 		}
 		Util.showBufferedImages(image, imageEros);
+		Util.writeImageOnFile(imageEros, "src/output/erosion.png");
 	}
 }

@@ -1,9 +1,9 @@
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class GrayscaleWeigthed {
+public class GrayscaleWeighted {
 	public static void main(String args[]) throws IOException {
-		BufferedImage image = Util.loadImageFromFile("src/img1.png");
+		BufferedImage image = Util.loadImageFromFile("src/input/img1.png");
 
 		int width = image.getWidth();
 		int height = image.getHeight();
@@ -17,11 +17,12 @@ public class GrayscaleWeigthed {
 				int r = (p >> 16) & 0xff;
 				int g = (p >> 8) & 0xff;
 				int b = p & 0xff;
-				int weigt = (int) (r * 0.299 + g * 0.587 + b * 0.114);
-				p = (a << 24) | (weigt << 16) | (weigt << 8) | weigt;
+				int weight = (int) (r * 0.299 + g * 0.587 + b * 0.114);
+				p = (a << 24) | (weight << 16) | (weight << 8) | weight;
 				greyscale.setRGB(x, y, p);
 			}
 		}
 		Util.showBufferedImages(image, greyscale);
+		Util.writeImageOnFile(greyscale, "src/output/greyscaleWeighted.png");
 	}
 }

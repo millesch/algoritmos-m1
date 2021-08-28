@@ -3,7 +3,7 @@ import java.io.IOException;
 
 public class Thresholding {
 	public static void main(String args[]) throws IOException {
-		BufferedImage image = Util.loadImageFromFile("src/greyscale.png");
+		BufferedImage image = Util.loadImageFromFile("src/input/greyscale.png");
 
 		int width = image.getWidth();
 		int height = image.getHeight();
@@ -13,9 +13,6 @@ public class Thresholding {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
 				int p = image.getRGB(x, y);
-				int a = (p >> 24) & 0xff;
-				int r = (p >> 16) & 0xff;
-				int g = (p >> 8) & 0xff;
 				int b = p & 0xff;
 
 				int pT;
@@ -29,7 +26,7 @@ public class Thresholding {
 				imagemThres.setRGB(x, y, pT);
 			}
 		}
-		Util.writeImageOnFile(imagemThres, "src/blackAndWhite.png");
+		Util.writeImageOnFile(imagemThres, "src/output/blackAndWhite.png");
 		Util.showBufferedImages(image, imagemThres);
 	}
 }

@@ -35,7 +35,7 @@ public class Util {
     public static int[][] loadMatrix3x3(int arg) {
         Scanner scanner = null;
         try {
-            scanner = new Scanner(new File("src/matrix" + arg + ".txt"));
+            scanner = new Scanner(new File("src/matrixes/matrix" + arg + ".txt"));
         } catch (FileNotFoundException e) {
             System.out.println("Arquivo nao encontrado");
             e.printStackTrace();

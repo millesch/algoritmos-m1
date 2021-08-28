@@ -3,8 +3,8 @@ import java.io.IOException;
 
 public class Subtract {
     public static void main(String args[]) throws IOException {
-        BufferedImage image = Util.loadImageFromFile("src/img2.png");
-        BufferedImage image2 = Util.loadImageFromFile("src/img3.png");
+        BufferedImage image = Util.loadImageFromFile("src/input/img2.png");
+        BufferedImage image2 = Util.loadImageFromFile("src/input/img3.png");
 
         int width = image.getWidth();
         int height = image.getHeight();
@@ -12,14 +12,14 @@ public class Subtract {
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                int iOne = image.getRGB(x, y);
-                int iTwo = image2.getRGB(x, y);
+                int p1 = image.getRGB(x, y);
+                int p2 = image2.getRGB(x, y);
 
                 // separação e subtração dos canais de cores e do alpha do pixel
-                int alpha = Util.getAlpha(iOne) - Util.getAlpha(iTwo);
-                int red = Util.getRed(iOne) - Util.getRed(iTwo);
-                int green = Util.getGreen(iOne) - Util.getGreen(iTwo);
-                int blue = Util.getBlue(iOne) - Util.getBlue(iTwo);
+                int alpha = Util.getAlpha(p1) - Util.getAlpha(p2);
+                int red = Util.getRed(p1) - Util.getRed(p2);
+                int green = Util.getGreen(p1) - Util.getGreen(p2);
+                int blue = Util.getBlue(p1) - Util.getBlue(p2);
 
                 // função Math.max compara a subtração ao número 0 e retorna o maior deles
                 // para que o resultado não seja menor do que 0
@@ -35,5 +35,6 @@ public class Subtract {
         }
 
         Util.showBufferedImages(image, image2, newImage);
+        Util.writeImageOnFile(newImage, "src/output/subtract.png");
     }
 }

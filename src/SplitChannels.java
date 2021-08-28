@@ -3,7 +3,7 @@ import java.io.IOException;
 
 public class SplitChannels {
 	public static void main(String args[]) throws IOException {
-		BufferedImage image = Util.loadImageFromFile("src/img1.png");
+		BufferedImage image = Util.loadImageFromFile("src/input/img1.png");
 		
 		int width = image.getWidth();
 		int height = image.getHeight();
@@ -31,5 +31,8 @@ public class SplitChannels {
 			}
 		}
 		Util.showBufferedImages(image, imagemR, imagemG, imagemB);
+		Util.writeImageOnFile(imagemR, "src/output/red.png");
+		Util.writeImageOnFile(imagemG, "src/output/green.png");
+		Util.writeImageOnFile(imagemB, "src/output/blue.png");
 	}
 }
