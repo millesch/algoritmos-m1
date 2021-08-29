@@ -1,11 +1,19 @@
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.nio.Buffer;
 
 public class Subtract {
     public static void main(String args[]) throws IOException {
         BufferedImage image = Util.loadImageFromFile("src/input/img2.png");
         BufferedImage image2 = Util.loadImageFromFile("src/input/img3.png");
 
+        BufferedImage newImage = sub(image, image2);
+
+        Util.showBufferedImages(image, image2, newImage);
+        Util.writeImageOnFile(newImage, "src/output/subtract.png");
+    }
+
+    public static BufferedImage sub(BufferedImage image, BufferedImage image2) {
         int width = image.getWidth();
         int height = image.getHeight();
         BufferedImage newImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -34,7 +42,6 @@ public class Subtract {
             }
         }
 
-        Util.showBufferedImages(image, image2, newImage);
-        Util.writeImageOnFile(newImage, "src/output/subtract.png");
+        return newImage;
     }
 }
