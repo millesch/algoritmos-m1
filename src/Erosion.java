@@ -39,12 +39,12 @@ public class Erosion {
 
 				int p;
 				
-				if(fit)
+				if(fit) 
 					p = (0 << 24) | (255 << 16) | (255 << 8) | 255;
-				else
+				else 
 					p = (255 << 24) | (0 << 16) | (0 << 8) | 0;
 
-				//setando o pixel gerado na nova imagem.
+				//setando o pixel gerado na nova imagem
 				imageEros.setRGB(x, y, p);
 			}
 		}
